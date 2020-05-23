@@ -1,0 +1,280 @@
+@charset "UTF-8";
+
+/* Para importar uma fonte do google, por exemplo:*/
+@import url('https://fonts.googleapis.com/css?family=Titillium+Web');
+
+/* Para usar uma fonte personalizada */
+@font-face {
+	font-family: 'FonteLogo'; /* nome que estoudando para fonte */
+	src: url("../_fonts/bubblegum-sans-regular.otf"); /* caminho da fonte (onde está localizada)*/
+}
+
+p {
+   text-align:justify; 
+   text-indent: 50px;
+}
+
+a {
+	color: #606060; /* Cor escura */
+	text-decoration: none; /* sem sublinhado */
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+body {
+	/*background-image: url("Fundo.jpg"); */
+	background-color: #dddddd; /* Fundo cinza do container*/
+	color: rgba(0,0,0,0.8); /* cor da letra*/
+	font-family: Arial, sans-serif;
+}
+
+/* Formatação da interface */
+div#interface {
+	width: 900px; /* Delimitando a largura em 800 pixels*/
+	background-color: #ffffff; /* fundo branco da interface */
+	margin: -20px auto 0px auto; /* cima direita baixo esquerda */
+	box-shadow: 0px 0px 10px rgba(0,0,0,.5); /* Parâmetros: 1)Deslocamento lateral 2)Deslocamento vertical 3)Espalhamento da sombra 4)Cor da sombra */
+	padding: 10px 10px 10px 10px; /* para ajustar o espaço do texto (o que tá dentro do container) */
+	/* quando o padding for todo igual, pode colocar só uma vez, ex: padding: 10px; */
+}
+
+/* Posição absoluta, o objetivo fica livre pelo site, e a gente pode definir a posição dele (absoluta) (left e top) */
+/* Posição relativa, o objetivo fica preso dentro do container dele*/
+
+/* Para colocar o óculos solto (não dentro do container) no site*/
+header#cabecalho img#icone {
+	position: absolute;
+	left: 780px;
+	top: 70px;
+} 
+/* a border delimita a área do cabeçalho*/
+/* se quisermos que apareca as linhas, temos que colocar */
+/* no nosso exemplo vou colocar só uma linha, a bottom*/
+/* o height define a altura do cabeçalho, no exemplo tem 150 pixels*/
+header#cabecalho {
+	/*border-top: 3px #606060 solid;*/
+	/*border-right: 1px #606060 solid;*/
+	/*border-left: 1px #606060 solid;*/
+	border-bottom: 1px #606060 solid; /* para criar um linha, a borda de cima com lagura , cor, formato (solid, dashed, dotted, double, inset, outset) */
+	height: 150px; /* altura do cabecalho*/
+	/* para carregar uma imagem no cabeçalho com background, a cláusula no-repeat faz ele aparecer só uma vez*/
+	/* os outros dois parâmetros é o deslocamento lateral e  vertical*/
+	background: url("../_imagens/glass-logo-peq.jpg") no-repeat 0px 90px;
+}
+header#cabecalho h1 {
+	font-family: 'FonteLogo', sans-serif;
+	font-size: 30pt; /* pt = pontos */
+	color: #606060;
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.6);
+	padding: 0px;
+	margin-bottom: 0px;
+}
+
+header#cabecalho h2 {
+    font-family: 'Titillium Web', sans-serif; /* Usando a fonte do google*/
+	/*font-family: Arial, sans-serif; */
+	font-size: 15pt;
+	color: #888888;
+	padding: 0px;
+	margin-top: 0px;
+}
+
+/* Formatação de imagens com legendas */
+
+figure.foto-legenda{
+	position: relative;
+	border: 8px solid white;
+	box-shadow: 1px 1px 4px black;
+}
+
+/* Para ajustar o tamanho da imagem */
+figure.foto-legenda img{
+	width: 100%;
+	height: 100%;
+}
+
+/* Para ajustar a legenda da imagem */
+figure.foto-legenda figcaption{
+    opacity: 0;
+	position: absolute;
+	top: 0px;
+	background-color: rgba(0,0,0,.4);
+	color: white;
+	width: 100%;
+	height: 100%;
+	padding: 10px;
+	box-sizing: border-box;
+	transition: opacity 1s;
+}
+
+/* O hover vai disparar uma formação específica 
+que vai acontecer quando a pessoa passar o mouse por cima do objeto. */
+figure.foto-legenda:hover figcaption{
+	opacity: 1;
+}
+/* Formtação do menu */
+
+nav#menu {
+	display: block; /* para ele ser exibido como um bloco*/
+}
+
+nav#menu ul {
+	list-style: none; /* para tirar todos os marcadores */
+	text-transform: uppercase; /* transforma tudo em maiúsculo */
+	position: absolute; /*  para o menu ficar livre pelo site */
+	top: -20px; /* posição absoluta do menu - top */ 
+	left: 300px; /* posição absoluta no menu - left */ 
+}
+
+nav#menu li {
+	display: inline-block; /* para as opções saírem em linha */
+	background-color: #dddddd; /* cor no fundo do item - cinza claro */
+	padding: 10px; /* para dar um espaço para a caixa que contém o objetvo*/
+	margin: 2px; /* para dar um espaço entre as opçoes */
+	transition: background-color 1s;
+}
+/* configurando o evento que é para acontecer quando passo o mouse em cima da opção (hover) no menu */ 
+nav#menu li:hover {
+	background-color: #606060; /* Pinta o fundo de cinza escurinho */
+
+}
+/* Para esconder a linha do Menu Principal */
+nav#menu h1 {
+	display: none; /* a linha não aparece */
+}
+/* formatando os links - tag <a> */ 
+nav#menu a {
+	color: #000000; /* cor preta (da letra)*/
+	text-decoration: none; /* para tirar o sublinhado*/ 
+}
+
+/* Para o link mudar de cor quando passo o mouse */ 
+nav#menu a:hover {
+	color: #ffffff; /* Mudar a cor da letra para branco */
+	text-decoration: underline; /* Para sublinhar */
+}
+
+section#corpo {
+	display: block;
+	width: 500px;
+	float: left;
+	/* a linha que separa as duas sessões */
+	border-right: 1px solid #606060;
+	/* para dar um espaço entre as duas duas sessões (section e aside) */
+	padding-right: 15px;
+}
+
+article#noticia-principal h2 {
+	font-size: 13pt;
+	color: #606060;
+	background-color: #dddddd; /* cinza claro */
+	padding: 5px 0px 5px 10px;
+	margin: 10px 0px 10px 0px;
+}
+
+header#cabecalho-artigo h1 {
+	font-family: 'FonteLogo', sans-serif;
+	font-size: 20pt;
+	color: #606060; /* Cinza mais escuro */
+	margin-bottom: 0px;
+	margin-top: 0px;
+}
+
+.direita {
+	text-align: right;
+}
+
+header#cabecalho-artigo h2 {
+	font-size: 13pt;
+	color: #cecece; /* Cinza ligeiramente mais claro */
+	background-color: #ffffff;
+	margin: 0px;
+}
+
+header#cabecalho-artigo h3 {
+	font-size: 12px;
+	color: #606060;
+}
+
+/* Configuração da tabela */
+table#tabelaspec {
+	border: 1px solid #606060; /* borda da tabela (externa)*/
+	border-spacing: 0px; /* Espaçamento entre as celulas*/
+	margin-left: auto; /* Alinhamento da tabela */
+	margin-right: auto; /* Alinhamento da tabela */
+}
+
+table#tabelaspec td {
+	border: 1px solid #606060; /* Borda da célula */
+	padding: 10px; /* Espaço interno na célula */
+	text-align: center; /* Alinhamento do texto horizontal*/
+	vertical-align: top; /* Alinhamento vertical do texto*/
+}
+/* configuração das colunas da esquerda (foi criada uma classe ce)*/
+/* as configurações das classes sobrepõe o que foi definido para tag principal */
+/* Por isso podemos definir novamente algunas configurações */
+table#tabelaspec td.ce {
+	color: #ffffff;
+	background-color: #606060; /* cinza escuro */
+	vertical-align: top; /* */
+	font-weight: bold; /* fonte em negrito */
+}
+
+/* configuração das colunas da direita (foi criada uma classe cd)*/
+table#tabelaspec td.cd {
+	background-color: #cecece; /* cinza mais claro */
+}
+
+table#tabelaspec caption {
+	color: #888888;
+	font-size: 13pt;
+	font-weight: bolder;
+}
+
+/* Essa formação foi para separar o texto Mar/2013 do título */
+/* para que ele aparecesse a direita, com uma letra menor*/
+/* como um bloco, flutuando (float) */
+/* com outra cor (preto) e grudado na tabela */
+/* Para isso foi criada uma tag nova (essa span) e colocado as configurações aqui */
+table#tabelaspec caption span {
+	display: block;
+	float: right;
+	color: #000000;
+	font-size: 8pt;
+	margin-top: 10px;
+}
+
+aside#lateral {
+	display: block;
+	width: 350px;
+	float: right;
+	background-color: #dddddd;
+	padding: 10px;
+	margin-top: 10px;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.5); /* sombra preta com 50% de transparência */
+}
+
+aside#lateral h1 {
+	font-family:'FonteLogo', sans-serif;
+	font-size: 20pt;
+	color: #606060;
+	margin-top: 0px;
+}
+
+aside#lateral h2 {
+	font-size: 13pt;
+	background-color: #606060;
+	color: #ffffff; /* fonte branca */
+	padding: 5px;
+}
+
+footer#rodape {
+	/* usamos esse clear para limpar a divisão dos dois lados (section e aside) - os float acima) */
+	clear: both;
+	border-top: 1px solid #606060;
+}
+footer#rodape p {
+	text-align: center;
+}
